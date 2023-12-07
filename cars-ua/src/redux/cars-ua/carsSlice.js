@@ -6,7 +6,6 @@ const initialState = {
   error: "",
   loading: false,
   filter: "",
-  favorites: [],
 };
 
 const carsSlice = createSlice({
@@ -15,17 +14,17 @@ const carsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(fetchCarData.fulfilled, (state, { payload }) => {
+        state.cars = payload;
+        state.loading = false;
+      })
       .addCase(fetchCarData.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchCarData.fulfilled, (state, action) => {
-        state.cars = action.payload;
+      .addCase(fetchCarData.rejected, (state, { payload }) => {
         state.loading = false;
-      })
-      .addCase(fetchCarData.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
+        state.error = payload;
       });
   },
 });

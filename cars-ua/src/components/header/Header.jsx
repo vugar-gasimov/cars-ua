@@ -1,14 +1,18 @@
 import React from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import Icon from "../icons/car-logo.svg";
+import "./header.css";
 
 const Header = () => {
   const location = useLocation();
   return (
-    <header>
-      <nav>
-        <Link to="/">{Icon}cars-ua</Link>
-        <ul>
+    <header className="header">
+      <nav className="nav">
+        <Link className="header--logo-link" to="/">
+          <img src={Icon} alt="Car Logo" width={36} height={36} />
+          Cars-Ua
+        </Link>
+        <ul className="header--list">
           <li>
             <NavLink to="/">Home</NavLink>
           </li>

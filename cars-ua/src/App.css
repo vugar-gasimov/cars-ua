@@ -1,6 +1,7 @@
 button {
   color: white;
   background-color: #3470ff;
+  border: none;
 }
 button:hover {
   background-color: #0b44cd;
@@ -19,7 +20,7 @@ button:hover {
 
 .main-btn {
   display: flex;
-  padding: 12px 50px;
+  padding: 14px 44px;
   justify-content: center;
   align-items: center;
   border-radius: 12px;

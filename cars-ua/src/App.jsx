@@ -1,11 +1,12 @@
 import { Suspense } from "react";
 import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Catalogues from "./pages/Catalogues";
-import Favorites from "./pages/Favorites";
-import Home from "./pages/Home";
+
 import Layout from "./components/layout/Layout";
 import Loader from "./components/loader/Loader";
+import Catalogues from "./pages/catalogues/Catalogues";
+import Favorites from "./pages/favorites/Favorites";
+import Home from "./pages/home/Home";
 function App() {
   return (
     <Routes>

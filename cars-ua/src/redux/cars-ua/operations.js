@@ -9,7 +9,9 @@ export const fetchCarData = createAsyncThunk(
   "cars/fetchData",
   async ({ page = 1, limit = 12 }, thunkApi) => {
     try {
-      const { data } = await carsApi.get("/UkrAutoRent?page=1&limit=12");
+      const { data } = await carsApi.get(
+        `/UkrAutoRent?page=${page}&limit=${limit}`
+      );
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

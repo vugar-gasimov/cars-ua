@@ -1,0 +1,38 @@
+main {
+  padding: 150px 115px;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+p {
+  margin: 8px 0 8px 0;
+}
+
+h1,
+h2 {
+  margin: 10px 0 10px 0;
+}
+.home--img-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+@media screen and (max-width: 1100px) {
+  .home--img-container {
+    flex-direction: column;
+  }
+}
+.home--img-container > div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+.home--img-container > div > img {
+  max-width: 450px;
+  min-height: 400px;
+  object-fit: cover;
+}
