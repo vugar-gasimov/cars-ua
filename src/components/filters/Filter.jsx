@@ -5,8 +5,8 @@ import "./filter.css";
 const Filter = () => {
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState("");
-  const [mileFrom, setMileFrom] = useState(null);
-  const [mileTo, setMileTo] = useState(null);
+  const [mileFrom, setMileFrom] = useState("");
+  const [mileTo, setMileTo] = useState("");
 
   const brandOptions = [
     "Buick",

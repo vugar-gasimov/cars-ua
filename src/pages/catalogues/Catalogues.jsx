@@ -13,6 +13,7 @@ import {
 import "../../App.css";
 import "./catalogues.css";
 import Filter from "../../components/filters/Filter";
+import CardList from "../../components/cardList/CardList";
 const Catalogues = () => {
   const dispatch = useDispatch();
   const cars = useSelector(selectCars);
@@ -22,7 +23,11 @@ const Catalogues = () => {
   // const [itemsToShow, setItemsToShow] = useState(12);
 
   useEffect(() => {
-    dispatch(fetchCarData());
+    const data = {
+      page: 1,
+      limit: 12,
+    };
+    dispatch(fetchCarData(data));
   }, [dispatch]);
 
   // const showMoreItems = () => {
@@ -36,15 +41,7 @@ const Catalogues = () => {
       {!loading && error && <div>Error: {error}</div>}
       {!loading && !error && (
         <div>
-          {cars?.map((car) => {
-            console.log(car);
-            return (
-              <div key={car.id}>
-                {car.model}
-                {car.img}
-              </div>
-            );
-          })}
+          <CardList items={cars} />
         </div>
       )}
       {/* {cars < cars.items.length && (
