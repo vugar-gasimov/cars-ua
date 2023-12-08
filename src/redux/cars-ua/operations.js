@@ -10,11 +10,26 @@ export const fetchCarData = createAsyncThunk(
   async ({ page = 1, limit = 12 }, thunkApi) => {
     try {
       const { data } = await carsApi.get(
-        `/UkrAutoRent?page=${page}&limit=${limit}`
+        `UkrAutoRent?page=${page}&limit=${limit}`
       );
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateLikeStatus = createAsyncThunk(
+  "cars/updateLikeStatus",
+  async ({ id, liked }, thunkAPI) => {
+    try {
+      const updatedLikeStatus = Boolean(liked);
+      const { data } = await carsApi.put(`UkrAutoRent/${id}`, {
+        liked: updatedLikeStatus,
+      });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

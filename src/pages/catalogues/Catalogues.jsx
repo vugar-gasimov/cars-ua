@@ -41,7 +41,7 @@ const Catalogues = () => {
       {!loading && error && <div>Error: {error}</div>}
       {!loading && !error && (
         <div>
-          <CardList items={cars} />
+          <CardList cars={cars} />
         </div>
       )}
       {/* {cars < cars.items.length && (
