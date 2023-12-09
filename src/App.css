@@ -39,8 +39,13 @@ button:hover {
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
+  cursor: pointer;
+  stroke: #3470ff;
+  fill: none;
 }
 .load-more-btn:hover {
   color: #0b44cd;
   background-color: transparent;
+  stroke: #0b44cd;
+  fill: none;
 }

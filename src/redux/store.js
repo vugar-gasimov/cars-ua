@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
-
 import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
+import { carsReducer } from "./cars-ua/carsSlice";
 import {
   FLUSH,
   REHYDRATE,
@@ -11,7 +11,6 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import { carsReducer } from "./cars-ua/carsSlice";
 
 const persistConfig = {
   key: "cars",
@@ -21,7 +20,9 @@ const persistConfig = {
 };
 
 export const store = configureStore({
-  reducer: { cars: persistReducer(persistConfig, carsReducer) },
+  reducer: {
+    cars: persistReducer(persistConfig, carsReducer),
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

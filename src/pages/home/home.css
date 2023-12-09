@@ -15,12 +15,13 @@ h2 {
 }
 .home--img-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   gap: 30px;
 }
 
 @media screen and (max-width: 1100px) {
   .home--img-container {
+    align-items: center;
     flex-direction: column;
   }
 }
@@ -28,8 +29,6 @@ h2 {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  flex: 0 0 50%;
-  max-width: 50%;
 }
 .home--img-container > div > img {
   max-width: 450px;

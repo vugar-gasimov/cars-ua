@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateLikeStatus } from "../../redux/cars-ua/operations";
-
+import "../../App.css";
+import "./card.css";
+import Symbols from "../icons/Symbols";
+import Modal from "../modal/Modal";
+import CarModal from "../carModal/CarModal";
 const Card = (props) => {
   const {
     id,
@@ -16,41 +20,58 @@ const Card = (props) => {
     rentalCompany,
     functionalities,
   } = props;
-
+  const [modalMore, setModalMore] = useState(false);
   const dispatch = useDispatch();
-  // const handleLikeClick = () => {
-  //   dispatch({ type: "TOGGLE_LIKE", payload: { id, liked: !liked } });
-  // };
+
   const handleLikeClick = (carId) => {
-    const likedcars = {
+    const likedCars = {
       id,
       liked: !liked,
     };
-    dispatch(updateLikeStatus(likedcars));
+    dispatch(updateLikeStatus(likedCars));
   };
   return (
-    <div className="card">
-      <div className="card-image">
-        <div className="card-actions">
-          <button onClick={handleLikeClick}>{liked ? "Unlike" : "Like"}</button>
+    <div>
+      <div className="card--container">
+        <div className="card--img-container">
+          <Symbols />
+          <button className="card--heart " onClick={handleLikeClick}>
+            {liked ? (
+              <svg width={18} height={18}>
+                <use xlinkHref="#icon-active" />
+              </svg>
+            ) : (
+              <svg width={18} height={18}>
+                <use xlinkHref="#icon-normal" />
+              </svg>
+            )}
+          </button>
+
+          <img className="card--img" src={img} alt={make} />
         </div>
-        <img src={img} alt={make} width={200} />
+        <div className="card-details">
+          <h2 className="card--details-title">
+            {make}, {year}
+          </h2>
+          <p className="card--details-text">{rentalPrice}</p>
+        </div>
+        <ul className="card--details-list">
+          <li>{address} |</li>
+          <li>{rentalCompany} |</li>
+          <li>{type} |</li>
+          <li>{id} |</li>
+          <li>{model} |</li>
+          <li>{functionalities[0]} </li>
+        </ul>
       </div>
-      <div className="card-details">
-        <h2>{make}</h2>
-        <h2>
-          {model}, {year}
-        </h2>
-        <p>{rentalPrice}</p>
-      </div>
-      <ul className="card-list">
-        <li className="card-list-item">{address}</li>
-        <li className="card-list-item">{rentalCompany}</li>
-        <li className="card-list-item">{type}</li>
-        <li className="card-list-item">{id}</li>
-        <li className="card-list-item">{model}</li>
-        <li className="card-list-item">{functionalities[0]}</li>
-      </ul>
+      <button className="main-btn-long" onClick={setModalMore}>
+        Learn more
+      </button>
+      {modalMore && (
+        <Modal closeModal={() => setModalMore(false)}>
+          <CarModal closeModal={setModalMore} {...props} />
+        </Modal>
+      )}
     </div>
   );
 };

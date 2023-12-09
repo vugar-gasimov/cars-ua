@@ -12,7 +12,11 @@ const initialState = {
 const carsSlice = createSlice({
   name: "cars-ua",
   initialState,
-  reducers: {},
+  reducers: {
+    setFilter: (state, { payload }) => {
+      state.filter = payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCarData.fulfilled, (state, { payload }) => {
@@ -36,5 +40,5 @@ const carsSlice = createSlice({
       });
   },
 });
-
+export const { setFilter } = carsSlice.actions;
 export const carsReducer = carsSlice.reducer;

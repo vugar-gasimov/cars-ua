@@ -1,0 +1,61 @@
+.card--container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 274px;
+  height: 426px;
+  overflow: hidden;
+}
+
+.card--img {
+  width: 100vw;
+  min-height: 268px;
+  background-position: center;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.card--heart {
+  position: relative;
+  left: 225px;
+  z-index: 1;
+  top: 40px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.card--heart:hover {
+  background-color: transparent;
+}
+svg:hover {
+  fill: #0b44cd;
+}
+.card-details {
+  display: flex;
+  gap: 145px;
+}
+.card-details > h2,
+p {
+  color: #121417;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.card--details-title {
+  display: flex;
+  margin: 0;
+}
+.card--details-text {
+  display: flex;
+  margin: 0;
+}
+
+.card--details-list {
+  display: flex;
+  color: rgba(18, 20, 23, 0.5);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  flex-wrap: wrap;
+  column-gap: 6px;
+  row-gap: 4px;
+}

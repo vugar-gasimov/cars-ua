@@ -1,0 +1,7 @@
+.carModal--container {
+  width: 541px;
+  height: 752px;
+  border-radius: 24px;
+  background: #fff;
+  z-index: 3;
+}

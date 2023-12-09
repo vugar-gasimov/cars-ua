@@ -1,3 +1,33 @@
 main {
   padding: 150px 115px;
 }
+
+.catalogues--main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+}
+.catalogues--car-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+@media screen and (min-width: 1690px) {
+  .catalogues--main {
+    display: flex;
+    gap: 44px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .catalogues--main {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .catalogues--main {
+    gap: 24px;
+  }
+}

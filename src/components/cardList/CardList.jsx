@@ -1,10 +1,10 @@
 import React from "react";
 import Card from "../card/Card";
-
-const CardList = ({ cars }) => {
+import "./cardList.css";
+const CardList = ({ items }) => {
   return (
-    <div>
-      {cars?.map((car) => (
+    <div className="card-list--container">
+      {items?.map((car) => (
         <Card key={car.id} {...car} />
       ))}
     </div>

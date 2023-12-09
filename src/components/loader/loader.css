@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #023e8a;
+
   min-height: 750px;
 }
 .loader {
