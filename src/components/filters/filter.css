@@ -27,7 +27,7 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1200px) {
   .filter--form {
     flex-direction: row;
   }
@@ -46,12 +46,14 @@
 .select-right {
   padding-right: 67px;
 }
+
 input {
   padding: 14px 0;
   border-radius: 14px;
   background: #f7f7fb;
   border: none;
   color: black;
+  font-size: 18px;
 }
 
 select:hover,
@@ -89,4 +91,8 @@ input::placeholder {
   padding: 14px 24px 14px 41px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.filter--submit-btn {
+  margin-top: 20px;
 }

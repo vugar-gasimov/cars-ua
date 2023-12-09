@@ -1,6 +1,8 @@
 import React from "react";
 import Symbols from "../icons/Symbols";
-
+import "../../App.css";
+import "./carModal.css";
+import Close from "../icons/icon-close.svg";
 const CarModal = ({
   id,
   img,
@@ -8,53 +10,65 @@ const CarModal = ({
   make,
   type,
   model,
-  liked,
   address,
+  mileage,
+  closeModal,
+  accessories,
   rentalPrice,
   rentalCompany,
   functionalities,
-  closeModal,
+  rentalConditions,
 }) => {
   const phoneNumber = "+380730000000";
+  const rentalConditionsList = rentalConditions.split("\n");
   return (
     <div className="carModal--container">
       <div className="carModal--subcontainer">
-        <div className="carModal--img-container">
-          <Symbols />
-          <button
-            className="carModal--close modal--close-btn "
-            onClick={() => closeModal(false)}
-          >
-            {liked ? (
+        <div className="carModal--img-info-container">
+          <div className="carModal--img-container">
+            <Symbols />
+            <button
+              className="carModal--close modal--close-btn "
+              onClick={() => closeModal(false)}
+            >
               <svg width={18} height={18}>
-                <use xlinkHref="#icon-active" />
+                <use xlinkHref={Close} />
               </svg>
-            ) : (
-              <svg width={18} height={18}>
-                <use xlinkHref="#icon-normal" />
-              </svg>
-            )}
-          </button>
+            </button>
 
-          <img className="carModal--img" src={img} alt={make} />
+            <img className="carModal--img" src={img} alt={make} />
+          </div>
+          <div className="carModal--details">
+            <h2 className="carModal--details-title">
+              {make}, {year}
+            </h2>
+            <p className="carModal--details-text">{rentalPrice}</p>
+            <p>Accessories and functionalities:</p>
+            <ul className="carModal--details-list">
+              {accessories.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+            <ul className="carModal--details-list">
+              {functionalities.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p>Rental Conditions:</p>
+            <ul>
+              {rentalConditionsList.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+              <li>Mileage:{mileage}</li>
+              <li>Price:{rentalPrice}</li>
+            </ul>
+          </div>
         </div>
-        <div className="carModal--details">
-          <h2 className="carModal--details-title">
-            {make}, {year}
-          </h2>
-          <p className="carModal--details-text">{rentalPrice}</p>
-        </div>
-        <ul className="carModal--details-list">
-          <li>{address} |</li>
-          <li>{rentalCompany} |</li>
-          <li>{type} |</li>
-          <li>{id} |</li>
-          <li>{model} |</li>
-          <li>{functionalities[0]} </li>
-        </ul>
       </div>
-      <a href={`tel:${phoneNumber}`} className="rental-car-button">
-        Learn more
+      <a href={`tel:${phoneNumber}`} className="rental--car-button main-btn">
+        Rental car
       </a>
     </div>
   );

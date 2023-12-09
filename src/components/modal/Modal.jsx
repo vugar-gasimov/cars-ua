@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import "./modal.css";
 const rootModal = document.querySelector("#modal");

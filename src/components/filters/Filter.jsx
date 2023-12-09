@@ -80,7 +80,11 @@ const Filter = ({
           />
         </div>
       </label>
-      <button className="main-btn" type="submit">
+      <button
+        className="main-btn filter--submit-btn
+      "
+        type="submit"
+      >
         Search
       </button>
     </form>
