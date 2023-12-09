@@ -1,9 +1,9 @@
-export const filterByPrice = (car, priceRange) => {
+export const filterByPrice = (car, selectPriceRange) => {
   const numValue = parseFloat(car.rentalPrice.replace(/[^\d.]/g, ""));
-  if (!priceRange) {
+  if (!selectPriceRange) {
     return true;
   }
-  const [min, max] = priceRange.split("-");
+  const [min, max] = selectPriceRange.split("-");
   return numValue >= Number(min) && numValue <= Number(max);
 };
 

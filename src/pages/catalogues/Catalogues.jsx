@@ -65,8 +65,8 @@ const Catalogues = () => {
   const handleSearch = () => {
     const filtered = allCars
       .filter((car) => !selectMake || car.make === selectMake)
-      .filter(filterByPrice)
-      .filter(filterByMileage);
+      .filter((car) => filterByPrice(car, selectPriceRange))
+      .filter((car) => filterByMileage(car, minMileage, maxMileage));
 
     setSearcherCars(filtered);
     setSearching(true);

@@ -1,6 +1,92 @@
-.filter--container {
+.filter--form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 18px;
+}
+.filter--input-labels {
+  display: flex;
+  flex-direction: column;
+}
+.filter--inputs-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.filter--form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .filter--form-container {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .filter--form {
+    flex-direction: row;
+  }
+}
+.selects {
+  padding: 14px 0 14px 18px;
+  border-radius: 14px;
+  background: #f7f7fb;
+  appearance: none;
+  border: none;
+}
+.select-left {
+  padding-right: 89px;
+}
+
+.select-right {
+  padding-right: 67px;
+}
+input {
+  padding: 14px 0;
+  border-radius: 14px;
+  background: #f7f7fb;
+  border: none;
+  color: black;
+}
+
+select:hover,
+select:focus,
+select:active,
+input:hover,
+input:focus,
+input:active {
+  outline: none;
+}
+
+select,
+input::placeholder {
+  color: #121417 !important;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.text {
+  padding-left: 10px;
+  color: #8a8a89;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  margin: 0 0 8px 0;
+}
+
+.filter--input-left {
+  padding: 14px 24px 14px 41px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 2px solid rgba(18, 20, 23, 0.09);
+}
+.filter--input-right {
+  padding: 14px 24px 14px 41px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }

@@ -23,7 +23,7 @@ export const makes = [
   "Land",
 ];
 export const priceOptions = [
-  { label: "$ All prices ", value: "" },
+  { label: "Select a price ", value: "" },
   { label: "$0 - $25 ", value: "0-25" },
   { label: "$25  - $50 ", value: "25-50" },
   { label: "$50  - $100 ", value: "50-100" },
