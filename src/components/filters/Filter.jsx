@@ -1,20 +1,20 @@
+import Down from "../icons/icon-down.svg";
 import React from "react";
 import "../../App.css";
 import "./filter.css";
-import Down from "../icons/icon-down.svg";
 
 const Filter = ({
+  makes,
+  onSubmit,
   selectMake,
-  selectPriceRange,
   minMileage,
   maxMileage,
-  makes,
   priceOptions,
   onMakeChange,
+  selectPriceRange,
   onPriceRangeChange,
   onMinMileageChange,
   onMaxMileageChange,
-  onSubmit,
 }) => {
   return (
     <form className="filter--form" onSubmit={onSubmit}>
