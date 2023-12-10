@@ -7,7 +7,7 @@ import {
   selectError,
   selectLoading,
 } from "../../redux/cars-ua/selectors";
-
+import { ThreeCircles } from "react-loader-spinner";
 import Filter from "../../components/filters/Filter";
 import CardList from "../../components/cardList/CardList";
 import Symbols from "../../components/icons/Symbols";
@@ -19,18 +19,18 @@ import {
   filterByMileage,
 } from "../../components/filters/FilterLogic";
 const Catalogues = () => {
-  const allCars = useSelector(selectCars);
   const dispatch = useDispatch();
+  const [data, setData] = useState([]);
+  const error = useSelector(selectError);
+  const allCars = useSelector(selectCars);
+  const loading = useSelector(selectLoading);
   const [showedCars, setShowedCars] = useState(1);
   const [selectMake, setSelectMake] = useState("");
-  const [selectPriceRange, setSelectPriceRange] = useState("");
   const [minMileage, setMinMileage] = useState("");
   const [maxMileage, setMaxMileage] = useState("");
-  const [searchedCars, setSearcherCars] = useState([]);
   const [searching, setSearching] = useState(false);
-  const loading = useSelector(selectLoading);
-  const error = useSelector(selectError);
-  const [data, setData] = useState([]);
+  const [searchedCars, setSearcherCars] = useState([]);
+  const [selectPriceRange, setSelectPriceRange] = useState("");
 
   useEffect(() => {
     const payload = {
@@ -79,17 +79,17 @@ const Catalogues = () => {
   return (
     <main className="catalogues--main">
       <Filter
+        makes={makes}
         selectMake={selectMake}
-        selectPriceRange={selectPriceRange}
         minMileage={minMileage}
         maxMileage={maxMileage}
-        makes={makes}
         priceOptions={priceOptions}
+        selectPriceRange={selectPriceRange}
+        onSubmit={handleSubmit}
         onMakeChange={handleMakeChange}
         onPriceRangeChange={handlePriceRangeChange}
         onMinMileageChange={handleMinMileageChange}
         onMaxMileageChange={handleMaxMileageChange}
-        onSubmit={handleSubmit}
       />
 
       {searching && !searchedCars.length ? (
@@ -100,7 +100,18 @@ const Catalogues = () => {
 
       {loading ? (
         <div>
-          <p>Loading.....</p>
+          <ThreeCircles
+            height="100"
+            width="100"
+            color="#3470FF"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+            ariaLabel="three-circles-rotating"
+            outerCircleColor=""
+            innerCircleColor=""
+            middleCircleColor=""
+          />
         </div>
       ) : error ? (
         <p>Apologies 401 {error}</p>

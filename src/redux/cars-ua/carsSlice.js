@@ -4,7 +4,7 @@ import { fetchCarData, updateLikeStatus } from "./operations";
 const initialState = {
   cars: [],
   liked: false,
-  error: "",
+  error: null,
   loading: false,
   filter: "",
 };
