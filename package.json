@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "main": "index.js",
+  "homepage": "https://vugar-gasimov.github.io/cars-ua/",
   "description": "Website for renting car in Ukraine, you can and to favorite by liking and filtering functions are also available",
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
@@ -26,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint:js": "eslint src/index.js"
+    "lint:js": "eslint src/**/*.{js,jsx}"
   },
   "eslintConfig": {
     "extends": [
