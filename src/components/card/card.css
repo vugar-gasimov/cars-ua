@@ -30,7 +30,11 @@ svg:hover {
 }
 .card-details {
   display: flex;
-  gap: 145px;
+
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 75px;
 }
 .card-details > h2,
 p {
@@ -41,12 +45,14 @@ p {
 }
 
 .card--details-title {
-  display: flex;
   margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 5px;
 }
 .card--details-text {
   display: flex;
-  margin: 0;
 }
 
 .card--details-list {
@@ -58,4 +64,7 @@ p {
   flex-wrap: wrap;
   column-gap: 6px;
   row-gap: 4px;
+}
+.blue {
+  color: #3470ff;
 }

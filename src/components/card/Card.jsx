@@ -50,9 +50,11 @@ const Card = (props) => {
           <img className="card--img" src={img} alt={make} />
         </div>
         <div className="card-details">
-          <h2 className="card--details-title">
-            {make}, {year}
-          </h2>
+          <ul className="card--details-title ">
+            <li>{make},</li>
+            <li className="blue">{model},</li>
+            <li>{year}</li>
+          </ul>
           <p className="card--details-text">{rentalPrice}</p>
         </div>
         <ul className="card--details-list">

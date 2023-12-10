@@ -16,8 +16,14 @@ button:hover {
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
+  transition: background-color 0.3s ease-in, box-shadow 0.3s ease-in,
+    transform 0.3s ease-in;
 }
-
+.main-btn-long:hover {
+  background-color: #0b44cd;
+  transform: scale(1.1);
+  box-shadow: 0 5px 5px #000;
+}
 .main-btn {
   display: flex;
   padding: 14px 44px;
@@ -30,7 +36,8 @@ button:hover {
   line-height: 20px;
   background: #3470ff;
   color: white;
-  transition: all ease-in 0.3s;
+  transition: background-color 0.3s ease-in, box-shadow 0.3s ease-in,
+    transform 0.3s ease-in;
 }
 .main-btn:hover {
   background-color: #0b44cd;
@@ -50,10 +57,14 @@ button:hover {
   cursor: pointer;
   stroke: #3470ff;
   fill: none;
+  transition: color 0.3s ease-in, text-shadow 0.3s ease-in,
+    transform 0.3s ease-in;
 }
 .load-more-btn:hover {
   color: #0b44cd;
   background-color: transparent;
   stroke: #0b44cd;
   fill: none;
+  transform: scale(1.1);
+  text-shadow: 0 5px 5px #000;
 }

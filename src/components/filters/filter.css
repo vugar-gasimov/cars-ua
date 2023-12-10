@@ -14,6 +14,11 @@
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (max-width: 768px) {
+  .filter--inputs-container {
+    flex-direction: column;
+  }
+}
 .filter--form-container {
   display: flex;
   flex-direction: column;
@@ -83,14 +88,32 @@ input::placeholder {
 
 .filter--input-left {
   padding: 14px 24px 14px 41px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-right: 2px solid rgba(18, 20, 23, 0.09);
 }
+@media screen and (max-width: 768px) {
+  .filter--input-left {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 2px solid rgba(18, 20, 23, 0.09);
+  }
+  .filter--input-right {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .filter--input-left {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 2px solid rgba(18, 20, 23, 0.09);
+  }
+  .filter--input-right {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
 .filter--input-right {
   padding: 14px 24px 14px 41px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
 }
 
 .filter--submit-btn {

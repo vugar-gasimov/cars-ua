@@ -3,11 +3,18 @@
   flex-direction: column;
   justify-content: flex-start;
   width: 541px;
-  height: 752px;
+  max-height: 752px;
   border-radius: 24px;
   background: #fff;
   z-index: 3;
   padding: 40px 36px;
+  justify-content: space-between;
+}
+.carModal--img-container {
+  width: 469px;
+  height: 250px;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .carModal--subcontainer {
@@ -16,6 +23,13 @@
   align-items: center;
   flex-direction: column;
 }
+
+.carModal--close {
+  position: absolute;
+  right: 27%;
+  top: 5%;
+  background-color: transparent;
+}
 .carModal--img {
   object-fit: cover;
   overflow: hidden;
@@ -23,8 +37,63 @@
   border-radius: 24px;
 }
 
-@media screen and (max-height: 770px) {
+.carModal--details {
+  height: 334px;
+}
+
+@media screen and (max-height: 700px) {
   .carModal--container {
     padding: 10px 36px;
   }
+  .carModal--under-list {
+    row-gap: 5px;
+  }
+  .carModal--close {
+    right: 26%;
+  }
 }
+.carModal--upper-title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 5px;
+  color: #121417;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.blue {
+  color: #3470ff;
+  font-weight: 600;
+}
+.carModal--upper-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 10px;
+}
+.carModal--middle-list {
+  display: flex;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 10px;
+}
+.carModal--under-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 15px;
+  column-gap: 10px;
+}
+.carModal--under-list > li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 14px;
+  border-radius: 35px;
+  background: #f9f9f9;
+  color: black;
+}
+/* .carModal--r-car-btn {
+} */

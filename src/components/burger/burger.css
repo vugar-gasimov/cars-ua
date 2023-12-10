@@ -1,0 +1,44 @@
+.burger--container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 4;
+  background-color: rgb(182, 180, 180);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (min-width: 1024px) {
+  .burger--container {
+    display: none;
+    z-index: 0;
+    overflow: auto;
+  }
+}
+.burger--list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 60px;
+}
+.burger--list > li > a {
+  background-color: white;
+}
+
+.burger--close-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background-color: transparent;
+  transition: transform ease-in 0.3s;
+  transform: rotate(0deg);
+}
+.burger--close-btn:hover {
+  background-color: transparent;
+}
+.header--burger-btn.rotate {
+  transform: rotate(180deg);
+}
