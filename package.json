@@ -2,7 +2,6 @@
   "name": "cars-ua",
   "version": "0.1.0",
   "private": true,
-  "main": "index.js",
   "homepage": "https://vugar-gasimov.github.io/cars-ua/",
   "description": "Website for renting car in Ukraine, you can and to favorite by liking and filtering functions are also available",
   "dependencies": {
@@ -17,9 +16,10 @@
     "react-loader-spinner": "^6.1.0",
     "react-redux": "^9.0.2",
     "react-router-dom": "^6.20.1",
-    "react-scripts": "^3.0.1",
+    "react-scripts": "^5.0.1",
     "redux": "^5.0.0",
     "redux-persist": "^6.0.0",
+    "semver": "^7.5.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint:js": "eslint src/index.js"
+    "lint:js": "eslint src/**/*.{js,jsx}"
   },
   "eslintConfig": {
     "extends": [
