@@ -1,23 +1,23 @@
+import { useDispatch, useSelector } from "react-redux";
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { fetchCarData } from "../../redux/cars-ua/operations";
+import { makes, priceOptions } from "../../components/data/Data";
+import CardList from "../../components/cardList/CardList";
+import { ThreeCircles } from "react-loader-spinner";
+import Filter from "../../components/filters/Filter";
+import Symbols from "../../components/icons/Symbols";
 import {
   selectCars,
   selectError,
   selectLoading,
 } from "../../redux/cars-ua/selectors";
-import { ThreeCircles } from "react-loader-spinner";
-import Filter from "../../components/filters/Filter";
-import CardList from "../../components/cardList/CardList";
-import Symbols from "../../components/icons/Symbols";
-import "../../App.css";
-import "./catalogues.css";
-import { makes, priceOptions } from "../../components/data/Data";
 import {
   filterByPrice,
   filterByMileage,
 } from "../../components/filters/FilterLogic";
+import "../../App.css";
+import "./catalogues.css";
 const Catalogues = () => {
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
@@ -93,7 +93,7 @@ const Catalogues = () => {
       />
 
       {searching && !searchedCars.length ? (
-        <p>No matching cars found</p>
+        <p>Unfortunately, we couldn't find a matching car.</p>
       ) : (
         <CardList items={searchedCars.length ? searchedCars : data} />
       )}

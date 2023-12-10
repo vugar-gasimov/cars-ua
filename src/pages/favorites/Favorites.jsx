@@ -1,23 +1,21 @@
 import React, { useState } from "react";
-import Filter from "../../components/filters/Filter";
-import { selectCars } from "../../redux/cars-ua/selectors";
 import { useSelector } from "react-redux";
-import CardList from "../../components/cardList/CardList";
+import { selectCars } from "../../redux/cars-ua/selectors";
 import { makes, priceOptions } from "../../components/data/Data";
+import Filter from "../../components/filters/Filter";
+import CardList from "../../components/cardList/CardList";
 import {
   filterByPrice,
   filterByMileage,
 } from "../../components/filters/FilterLogic";
 const Favorites = () => {
   const allCars = useSelector(selectCars);
-
   const [selectMake, setSelectMake] = useState("");
-  const [selectPriceRange, setSelectPriceRange] = useState("");
   const [minMileage, setMinMileage] = useState("");
   const [maxMileage, setMaxMileage] = useState("");
-  const [searchedCars, setSearcherCars] = useState([]);
   const [searching, setSearching] = useState(false);
-
+  const [searchedCars, setSearcherCars] = useState([]);
+  const [selectPriceRange, setSelectPriceRange] = useState("");
   const likedCars = allCars.filter((car) => car.liked === true);
 
   const handleMakeChange = (e) => {
@@ -53,20 +51,20 @@ const Favorites = () => {
   return (
     <main>
       <Filter
+        makes={makes}
         selectMake={selectMake}
-        selectPriceRange={selectPriceRange}
         minMileage={minMileage}
         maxMileage={maxMileage}
-        makes={makes}
         priceOptions={priceOptions}
+        selectPriceRange={selectPriceRange}
+        onSubmit={handleSubmit}
         onMakeChange={handleMakeChange}
         onPriceRangeChange={handlePriceRangeChange}
         onMinMileageChange={handleMinMileageChange}
         onMaxMileageChange={handleMaxMileageChange}
-        onSubmit={handleSubmit}
       />
       {searching && !searchedCars.length ? (
-        <p>Cars not found</p>
+        <p>Unfortunately, we couldn't find a car.</p>
       ) : (
         <CardList items={searchedCars.length ? searchedCars : likedCars} />
       )}

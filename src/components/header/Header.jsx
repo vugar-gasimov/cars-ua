@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import Icon from "../icons/car-logo.svg";
 import Wheel from "../icons/wheel.svg";
@@ -16,7 +16,19 @@ const Header = () => {
       document.body.style.overflow = isOpen ? "auto" : "hidden";
     }, 500);
   };
-
+  useEffect(() => {
+    let timeoutId;
+    if (isOpen) {
+      timeoutId = setTimeout(() => {
+        document.body.style.overflow = isOpen ? "auto" : "hidden";
+      }, 500);
+    }
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [isOpen]);
   return (
     <header className="header">
       <nav className="nav">
@@ -53,7 +65,14 @@ const Header = () => {
               height={36}
             />
           </button>
-          {isOpen && <Burger isRotated={toggleMenu} isOpen={toggleMenu} />}
+          {isOpen && (
+            <Burger
+              isOpen={isOpen}
+              isRotated={isRotated}
+              setIsOpen={setIsOpen}
+              setIsRotated={setIsRotated}
+            />
+          )}
         </div>
       </nav>
     </header>

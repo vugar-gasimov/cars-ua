@@ -3,14 +3,20 @@ import React from "react";
 import Wheel from "../icons/wheel.svg";
 import "../header/header.css";
 import "./burger.css";
-const Burger = ({ isOpen, isRotated }) => {
+const Burger = ({ isOpen, isRotated, setIsOpen, setIsRotated }) => {
   const location = useLocation();
-
+  const toggleMenu = () => {
+    setIsRotated(!isRotated);
+    setTimeout(() => {
+      setIsOpen(!isOpen);
+      document.body.style.overflow = isOpen ? "auto" : "hidden";
+    }, 500);
+  };
   return (
     <div className="burger--container">
       <button
         className={`burger--close-btn ${isRotated ? "rotate" : ""}`}
-        onClick={isOpen}
+        onClick={toggleMenu}
       >
         <img src={Wheel} width={36} height={36} alt="Close icon" />
       </button>

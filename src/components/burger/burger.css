@@ -11,6 +11,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-image: url("https://digestcars.com/wp-content/uploads/2019/10/rent-a-car.jpg");
+  background-size: cover;
+  background-position: center;
 }
 @media screen and (min-width: 1024px) {
   .burger--container {

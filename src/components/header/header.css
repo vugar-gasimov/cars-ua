@@ -48,6 +48,9 @@
     transform: rotate(180deg);
   }
 }
+.header--burger-btn:hover {
+  background-color: transparent;
+}
 
 .header--list > li > a {
   border: 1px solid;
