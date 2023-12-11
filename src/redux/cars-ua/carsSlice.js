@@ -1,29 +1,29 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { fetchCarData, updateLikeStatus } from "./operations";
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchCarData, updateLikeStatus } from './operations';
 
 const initialState = {
   cars: [],
   liked: false,
   error: null,
   loading: false,
-  filter: "",
+  filter: '',
 };
 
 const carsSlice = createSlice({
-  name: "cars-ua",
+  name: 'cars-ua',
   initialState,
   reducers: {
     setFilter: (state, { payload }) => {
       state.filter = payload;
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
       .addCase(fetchCarData.fulfilled, (state, { payload }) => {
         state.cars = payload;
         state.loading = false;
       })
-      .addCase(fetchCarData.pending, (state) => {
+      .addCase(fetchCarData.pending, state => {
         state.loading = true;
         state.error = null;
       })
@@ -33,10 +33,13 @@ const carsSlice = createSlice({
       })
       .addCase(updateLikeStatus.fulfilled, (state, { payload }) => {
         const { id, liked } = payload;
-        const carToUpdate = state.cars.find((car) => car.id === id);
-        if (carToUpdate) {
-          carToUpdate.liked = liked;
-        }
+        const updatedCars = state.cars.map(car => {
+          if (car.id === id) {
+            return { ...car, liked };
+          }
+          return car;
+        });
+        state.cars = updatedCars;
       });
   },
 });

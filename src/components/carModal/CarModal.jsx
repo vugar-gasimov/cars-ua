@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import "../../App.css";
-import "./carModal.css";
-import Close from "../icons/icon-close.svg";
+import '../../App.css';
+import './carModal.css';
+import Close from '../icons/icon-close.svg';
 const CarModal = ({
   id,
   img,
@@ -22,8 +22,8 @@ const CarModal = ({
   fuelConsumption,
   rentalConditions,
 }) => {
-  const phoneNumber = "+380730000000";
-  const rentalConditionsList = rentalConditions.split("\n");
+  const phoneNumber = '+380730000000';
+  const rentalConditionsList = rentalConditions.split('\n');
 
   return (
     <div className="carModal--container">
@@ -53,7 +53,6 @@ const CarModal = ({
               <li>Fuel consumption: {fuelConsumption} |</li>
               <li>Engine size: {engineSize}</li>
             </ul>
-            {/*++++++++++++++++++++++++ */}
             <p>{description}</p>
             <p>Accessories and functionalities:</p>
             <ul className="carModal--middle-list">
@@ -62,7 +61,7 @@ const CarModal = ({
               ))}
               {functionalities.map((item, index) => (
                 <li key={index}>
-                  {item} {index !== functionalities.length - 1 && " |"}
+                  {item} {index !== functionalities.length - 1 && ' |'}
                 </li>
               ))}
             </ul>
@@ -72,17 +71,17 @@ const CarModal = ({
               <ul className="carModal--under-list">
                 {rentalConditionsList.map((item, index) => (
                   <li key={index}>
-                    {item.split(" ").map((word, i) => {
+                    {item.split(' ').map((word, i) => {
                       const isNumber = /^\d+$/.test(word);
                       return (
                         <span
                           key={i}
                           style={{
-                            fontWeight: isNumber ? "600" : "inherit",
-                            color: isNumber ? "#3470ff" : "inherit",
+                            fontWeight: isNumber ? '600' : 'inherit',
+                            color: isNumber ? '#3470ff' : 'inherit',
                           }}
                         >
-                          {word}{" "}
+                          {word}{' '}
                         </span>
                       );
                     })}

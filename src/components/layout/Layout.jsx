@@ -1,8 +1,7 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
-import { Suspense } from "react";
-import Header from "../header/Header";
-import { ThreeCircles } from "react-loader-spinner";
+import React, { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
+import Header from '../header/Header';
+import { ThreeCircles } from 'react-loader-spinner';
 const Layout = () => {
   return (
     <>

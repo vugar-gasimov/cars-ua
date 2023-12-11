@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { updateLikeStatus } from "../../redux/cars-ua/operations";
-import "../../App.css";
-import "./card.css";
-import Symbols from "../icons/Symbols";
-import Modal from "../modal/Modal";
-import CarModal from "../carModal/CarModal";
-const Card = (props) => {
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateLikeStatus } from '../../redux/cars-ua/operations';
+import '../../App.css';
+import './card.css';
+import Symbols from '../icons/Symbols';
+import Modal from '../modal/Modal';
+import CarModal from '../carModal/CarModal';
+const Card = props => {
   const {
     id,
     img,
@@ -21,14 +21,16 @@ const Card = (props) => {
     functionalities,
   } = props;
   const [modalMore, setModalMore] = useState(false);
+  const [likedState, setLikedState] = useState(props.liked);
   const dispatch = useDispatch();
 
-  const handleLikeClick = (carId) => {
+  const handleLikeClick = () => {
     const likedCars = {
       id,
       liked: !liked,
     };
     dispatch(updateLikeStatus(likedCars));
+    setLikedState(!likedState);
   };
   return (
     <div>
@@ -36,7 +38,7 @@ const Card = (props) => {
         <div className="card--img-container">
           <Symbols />
           <button className="card--heart " onClick={handleLikeClick}>
-            {liked ? (
+            {likedState ? (
               <svg width={18} height={18}>
                 <use xlinkHref="#icon-active" />
               </svg>
@@ -46,7 +48,6 @@ const Card = (props) => {
               </svg>
             )}
           </button>
-
           <img className="card--img" src={img} alt={make} />
         </div>
         <div className="card-details">
