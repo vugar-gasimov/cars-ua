@@ -26,6 +26,14 @@ We're looking to enhance user experience by incorporating animations and adding 
 
 Upon initiating the application, users start from the home page, providing essential information about our services. The default view showcases 12 cars, and the favorite section remains empty until users add cars to their favorites.
 
+## Dependencies
+- HTML/CSS
+- JavaScript
+- React/Redux Toolkit
+- React Router Dom
+- React Select
+- Axios
+
 ## Contributing
 
 If you're interested in contributing, reach out with your ideas at vuqar5qasimov@gmail.com. We welcome code contributions, bug fixes, design enhancements, and feature suggestions.
